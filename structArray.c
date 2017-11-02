@@ -16,10 +16,10 @@ Student* getStudents(char *fileName, int *numStudents);
 
 int main(void) {
   int numStudents = 0;
-	Student *students = getStudents("studentrecords.csv", &numStudents);
-	for(int i = 0; i < numStudents; i++) {
-	    students[i].printStudentInfo(students[i],i);
-	}
+  Student *students = getStudents("studentrecords.csv", &numStudents);
+  for(int i = 0; i < numStudents; i++) {
+     students[i].printStudentInfo(students[i],i);
+  }
 }
 
 void printStudentInfo(Student s, int studentNum) {
