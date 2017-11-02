@@ -18,6 +18,7 @@ int main(void) {
   int numStudents = 0;
   Student *students = getStudents("studentrecords.csv", &numStudents);
   for(int i = 0; i < numStudents; i++) {
+     //print out each student's info
      students[i].printStudentInfo(students[i],i);
   }
 }
@@ -30,13 +31,16 @@ void printStudentInfo(Student s, int studentNum) {
 }
 
 Student* getStudents(char *fileName, int *numStudents) {
+    //initialize Student array
     Student *students = malloc(100 * sizeof(Student));
+    //read file
     FILE *file = fopen(fileName, "r");
     if(file == NULL) {
         printf("\nError. Cannot read file");
         return NULL;
     }
     char line[256];
+    //split each line in file into comma-separated strings and assign to each student in array
     while(fgets(line, 1024,file) != NULL) {
         char *name = strtok(line, ",");
         int age = atoi(strtok(NULL, ","));
