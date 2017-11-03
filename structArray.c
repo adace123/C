@@ -62,3 +62,13 @@ Student* getStudents(char *fileName, int *numStudents) {
     fclose(file);
     return students;
 }
+
+void addStudent(char *filename, Student newStudent) {
+    FILE *file = fopen(filename, "a");
+    char *courses = malloc(sizeof(char) * 500);
+    for(int i = 0; i < newStudent.numCourses; i++) {
+        strcat(courses, ",");
+        strcat(courses, newStudent.courses[i]);
+    }
+    fprintf(file, "\n%s,%d,%1.1f,%d%s", newStudent.name, newStudent.age, newStudent.GPA, newStudent.numCourses, courses);
+}
