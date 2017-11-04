@@ -9,7 +9,7 @@ typedef struct Student {
     int numCourses;
     float GPA;
     char *courses[10];
-    bool (*printStudentInfo)(struct Student, int studentNum);
+    void (*printStudentInfo)(struct Student, int studentNum);
 } Student;
 
 //function prototypes
